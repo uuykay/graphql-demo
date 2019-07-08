@@ -16,7 +16,9 @@
     "url": "https://github.com/uuykay/graphql-demo/issues"
   },
   "homepage": "https://github.com/uuykay/graphql-demo#readme",
-  "dependencies": {},
+  "dependencies": {
+    "graphql-yoga": "^1.18.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.0",
