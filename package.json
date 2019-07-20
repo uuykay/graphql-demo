@@ -4,7 +4,8 @@
   "description": "A learning demo for GraphQL",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/index.js"
+    "start": "babel-node src/index.js",
+    "nodemon": "nodemon src/index.js --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.0",
     "@babel/node": "^7.5.0",
-    "@babel/preset-env": "^7.5.0"
+    "@babel/preset-env": "^7.5.0",
+    "nodemon": "^1.19.1"
   },
   "resolutions": {
     "babel-core": "^7.0.0-bridge"
