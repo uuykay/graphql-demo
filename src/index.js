@@ -1,9 +1,26 @@
 import { GraphQLServer } from "graphql-yoga";
 
+// Demo user data
+const users = [
+  {
+    id: 1,
+    name: "William",
+    email: "william@example.com",
+    age: 29
+  },
+  {
+    id: 2,
+    name: "Nancy",
+    email: "nancy@example.com",
+    age: 27
+  }
+];
+
 // Scalar types: String, Boolean, Int, Float, ID
 // Type definitions (schema)
 const typeDefs = `
 	type Query{
+		users(query: String): [User!]!
 		me: User!
 		post: Post!
 	}
@@ -26,6 +43,15 @@ const typeDefs = `
 // Resolvers
 const resolvers = {
   Query: {
+    users(parent, args, ctx, info) {
+      if (!args.query) {
+        return users;
+      }
+
+      return users.filter(user => {
+        return user.name.toLowerCase().includes(args.query.toLowerCase());
+      });
+    },
     me() {
       return {
         id: "abc123",
@@ -51,5 +77,5 @@ const server = new GraphQLServer({
 });
 
 server.start(() => {
-  console.log("The server is up");
+  console.log("The server is up at http://localhost:4000/");
 });
